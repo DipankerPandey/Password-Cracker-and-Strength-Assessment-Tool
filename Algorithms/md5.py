@@ -118,5 +118,4 @@ def md5(msg):
 
 
 if __name__ == '__main__':
-	message = input()
-	md5(message)
+	md5("Pass")
