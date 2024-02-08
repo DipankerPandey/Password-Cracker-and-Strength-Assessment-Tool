@@ -118,4 +118,5 @@ def md5(msg):
 
 
 if __name__ == '__main__':
-	md5("Pass")
+	message = input("Enter the message to be hashed: ")
+	md5(message)
