@@ -67,6 +67,3 @@ def sha1(data):
         h4 = h4 + e & 0xffffffff
 
     return '%08x%08x%08x%08x%08x' % (h0, h1, h2, h3, h4)
-
-word = input("Enter the word: ")
-print(sha1(word))
