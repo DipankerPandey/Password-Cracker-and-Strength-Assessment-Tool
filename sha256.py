@@ -15,7 +15,7 @@ def generate_hash(message: bytearray) -> bytearray:
     string object."""
 
     if isinstance(message, str):
-        message = bytearray(message, 'ascii')
+        message = bytearray(message, 'utf-8')
     elif isinstance(message, bytes):
         message = bytearray(message)
     elif not isinstance(message, bytearray):
