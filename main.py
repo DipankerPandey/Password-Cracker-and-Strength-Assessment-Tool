@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
+import brute as brute
+import dicto as dicto
 
 
 # Function to selected file
