@@ -114,7 +114,6 @@ def md5(msg):
 
 
 if __name__ == '__main__':
-    message = input("Enter the message to be hashed: ")
     # Encode the input message to UTF-8
     message_utf8 = message.encode('utf-8')
     print(md5(message_utf8))

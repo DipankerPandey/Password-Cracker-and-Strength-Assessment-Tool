@@ -1,5 +1,9 @@
 import tkinter as tk
 from tkinter import filedialog
+from dicto import dictionary_password
+from brute import brute_force
+from rainbow import rainbow_table
+
 
 # Function to showcase file selection
 def show_file_selection():

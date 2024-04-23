@@ -150,5 +150,4 @@ def _rotate_right(num: int, shift: int, size: int = 32):
     return (num >> shift) | (num << size - shift)
 
 if __name__ == "__main__":
-    word = input("Enter the word:")
     print(generate_hash(word).hex())

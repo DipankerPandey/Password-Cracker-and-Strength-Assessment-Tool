@@ -6,17 +6,17 @@ from numpy import loadtxt
 
 
 
-def dictionary_password(password):
+def dictionary_password(password, type):
 
     words = loadtxt('list_1.txt', dtype=str)
     
     for word in words:
         print(word)
-        if md5(word) == password:
+        if type==0 or type == 3 and md5(word) == password:
             return word
-        elif sha1(word) == password:
+        elif type == 1 or type == 3 and sha1(word) == password:
             return word
-        elif sha256(word) == password:
+        elif type == 2 or type == 3 and sha256(word) == password:
             return word
     
 

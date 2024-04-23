@@ -68,8 +68,3 @@ def sha1(data):
 
     return '%08x%08x%08x%08x%08x' % (h0, h1, h2, h3, h4)
 
-# Take input from the user
-data = input("Enter the string to hash: ")
-
-# Calculate the SHA-1 hash and print it
-print("SHA-1 hash:", sha1(data))
