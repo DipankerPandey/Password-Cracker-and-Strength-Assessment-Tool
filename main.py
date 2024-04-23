@@ -1,12 +1,11 @@
 import tkinter as tk
 from tkinter import filedialog
 
-# Function to showcase file selection
-def show_file_selection():
-    filename = filedialog.askopenfilename()
-    if filename:
-        file_label.config(text="Selected file: " + filename)
-        print("Selected file:", filename)
+def create_entry(parent, font=("Helvetica", 10), bg="white", fg="black"):
+    entry = tk.Entry(parent, font=font, bg=bg, fg=fg)
+    return entry
+
+
 
 # Function to showcase wordlist selection
 def show_wordlist_selection():
@@ -34,11 +33,13 @@ def show_selected_attack_types():
 
 # Function to show analysis details
 def show_analysis_details():
+
+    entered_hash = hash_entry.get()
+    print("Entered hash:", entered_hash)
+    
     selected_hash_type = hash_type_var.get()
     print("Selected hash type:", selected_hash_type)
-    
-    selected_file = file_label.cget("text")
-    print("Selected file:", selected_file)
+
     
     selected_wordlist = wordlist_label.cget("text")
     print("Selected wordlist:", selected_wordlist)
@@ -68,14 +69,14 @@ def create_button(parent, text, command=None, font=("Helvetica", 10), bg="#4CAF5
     return button
 
 # Create frame for file selection
-file_frame = tk.Frame(root, bg="#f0f0f0")
-file_frame.pack(pady=20)
+hash_input_frame = tk.Frame(root, bg="#f0f0f0")
+hash_input_frame.pack(pady=20)
 
-file_label = create_label(file_frame, "Select a hash file:")
-file_label.grid(row=0, column=0, padx=5)
+hash_label = create_label(hash_input_frame, "Enter a hash:")
+hash_label.grid(row=0, column=0, padx=5)
 
-file_button = create_button(file_frame, "Browse", command=show_file_selection)
-file_button.grid(row=0, column=1, padx=5)
+hash_entry = create_entry(hash_input_frame)
+hash_entry.grid(row=0, column=1, padx=5)
 
 # Create frame for hash type selection
 hash_frame = tk.Frame(root, bg="#f0f0f0")
