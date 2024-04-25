@@ -14,9 +14,9 @@ def dictionary_password(password, type):
         print(word)
         if type==0 and md5(word) == password or type == 3 and md5(word) == password:
             return word
-        elif type == 1 and sha1(word) == password or type == 3 and sha1(word) == password:
+        if type == 1 and sha1(word) == password or type == 3 and sha1(word) == password:
             return word
-        elif type == 2 and sha256(word) == password or type == 3 and sha256(word) == password:
+        if type == 2 and str(sha256(word).hex()) == password or type == 3 and str(sha256(word).hex()) == password:
             return word
         
     return "Password not found"
@@ -24,4 +24,5 @@ def dictionary_password(password, type):
 
 if __name__ == '__main__':
     print(dictionary_password('bcbcc8be7132ba4329e52e707bce0f7f', 3))  # dummy values, will be changed later
+   
 

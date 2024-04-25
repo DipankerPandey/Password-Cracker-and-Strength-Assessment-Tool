@@ -17,7 +17,7 @@ def guess_password(real, a, b, type):
                 return guess
             elif type == 1 and sha1(guess) == real or type == 3 and sha1(guess) == real:
                 return guess
-            elif type == 2 and sha256(guess) == real or type == 3 and sha256(guess) == real:
+            elif type == 2 and str(sha256(guess).hex()) == real or type == 3 and str(sha256(guess).hex()) == real:
                 return guess
             print(guess)
     return "Password not found"
