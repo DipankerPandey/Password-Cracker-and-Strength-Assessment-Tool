@@ -12,11 +12,11 @@ def dictionary_password(password, type):
     
     for word in words:
         print(word)
-        if type==0 or type == 3 and md5(word) == password:
+        if type==0 and md5(word) == password or type == 3 and md5(word) == password:
             return word
-        elif type == 1 or type == 3 and sha1(word) == password:
+        elif type == 1 and sha1(word) == password or type == 3 and sha1(word) == password:
             return word
-        elif type == 2 or type == 3 and sha256(word) == password:
+        elif type == 2 and sha256(word) == password or type == 3 and sha256(word) == password:
             return word
         
     return "Password not found"

@@ -13,11 +13,11 @@ def guess_password(real, a, b, type):
         for guess in itertools.product(chars, repeat=password_length):
             guess = ''.join(guess)
             # checking if we found the password, will be replaced with hash function later on
-            if type == 0 or type == 3 and md5(guess) == real:
+            if type == 0 and md5(guess) == real or type == 3 and md5(guess) == real:
                 return guess
-            elif type == 1 or type == 3 and sha1(guess) == real:
+            elif type == 1 and sha1(guess) == real or type == 3 and sha1(guess) == real:
                 return guess
-            elif type == 2 or type == 3 and sha256(guess) == real:
+            elif type == 2 and sha256(guess) == real or type == 3 and sha256(guess) == real:
                 return guess
             print(guess)
     return "Password not found"
