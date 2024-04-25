@@ -111,10 +111,3 @@ def md5(msg):
     # processed_msg contains the integer value of the hash
     message_hash = MD_to_hex(processed_msg)
     return message_hash
-
-
-
-if __name__ == '__main__':
-    # Encode the input message to UTF-8
-
-    print(md5(message_utf8))
