@@ -20,6 +20,7 @@ def guess_password(real, a, b, type):
             elif type == 2 or type == 3 and sha256(guess) == real:
                 return guess
             print(guess)
+    return "Password not found"
 
 
 if __name__ == '__main__':

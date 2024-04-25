@@ -18,6 +18,8 @@ def dictionary_password(password, type):
             return word
         elif type == 2 or type == 3 and sha256(word) == password:
             return word
+        
+    return "Password not found"
     
 
 if __name__ == '__main__':

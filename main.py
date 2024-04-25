@@ -2,11 +2,14 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 from checker import password_strength_checker
+from dicto import dictionary_password
+from brute import guess_password
+from rainbow import rainbow_password
 
 # Function for pop up
 def popup():
     param= password_strength_checker(password_entry.get())
-    messagebox.showinfo("Popup", param)
+    messagebox.showinfo("Strength", param)
 
 
 # Function to showcase wordlist selection
@@ -27,22 +30,32 @@ def show_analysis_details():
     print("Entered hash:", entered_hash)
     
     selected_hash_type = hash_type_var.get()
-    print("Selected hash type:", selected_hash_type)
+    if selected_hash_type == "MD5":
+        type=0
+    if selected_hash_type == "SHA-1":
+        type=1
+    if selected_hash_type == "SHA-256":
+        type=2
+    if selected_hash_type == "Try all":
+        type=3
     
     selected_wordlist = wordlist_label.cget("text")
     print("Selected wordlist:", selected_wordlist)
     
     selected_attack_types = []
-    if attack_var1.get() == 1:
-        selected_attack_types.append("Brute Force")
+   
     if attack_var2.get() == 1:
-        selected_attack_types.append("Dictionary Attack")
-    if attack_var3.get() == 1:
-        selected_attack_types.append("Rainbow Table Attack")
-    
-    print("Selected attack types:", selected_attack_types)
-
-
+        a= dictionary_password(entered_hash, type)
+        if a != "Password not found":
+            messagebox.showinfo("Analysis", a)
+    if attack_var1.get() == 1:
+        guess_password(entered_hash, 5, 12, type)
+        if a != "Password not found":
+            messagebox.showinfo("Analysis", a)
+    """if attack_var3.get() == 1:
+        rainbow_password(entered_hash, selected_wordlist)
+        if a != "Password not found":
+            messagebox.showinfo("Analysis", a)"""
 
 
 # USER INTERFACE 
@@ -119,7 +132,7 @@ hash_frame.pack(pady=10)
 hash_label = create_label(hash_frame, "Select hash type")
 hash_label.grid(row=0, column=0, padx=5)
 
-hash_types = ["MD5", "SHA-1", "SHA-256"]
+hash_types = ["MD5", "SHA-1", "SHA-256", "Try all"]
 hash_type_var = tk.StringVar(value="MD5")
 for i, hash_type in enumerate(hash_types):
     rb = tk.Radiobutton(hash_frame, text=hash_type, variable=hash_type_var, value=hash_type, bg="#f0f0f0")
