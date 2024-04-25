@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog
 from dicto import dictionary_password
-from brute import brute_force
-from rainbow import rainbow_table
+from brute import guess_password
+from rainbow import rainbow_password
 
 
 def create_entry(parent, font=("Helvetica", 10), bg="white", fg="black"):
