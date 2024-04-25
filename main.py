@@ -43,7 +43,7 @@ def show_analysis_details():
     print("Selected wordlist:", selected_wordlist)
     
     selected_attack_types = []
-   
+    a = "Password not found"
     if attack_var2.get() == 1:
         a= dictionary_password(entered_hash, type)
         if a != "Password not found":
@@ -56,6 +56,9 @@ def show_analysis_details():
         rainbow_password(entered_hash, selected_wordlist)
         if a != "Password not found":
             messagebox.showinfo("Analysis", a)"""
+    
+    if a == "Password not found":
+        messagebox.showinfo("Analysis", "No password found")
 
 
 # USER INTERFACE 
