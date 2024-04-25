@@ -1,5 +1,10 @@
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import messagebox
+
+
+def popup():
+    messagebox.showinfo("Popup", "Hello! This is a pop-up message.")
 
 
 
@@ -84,6 +89,9 @@ password_label.grid(row=0, column=0, padx=5)
 password_entry = create_entry(password_input_frame)
 password_entry.grid(row=0, column=1, padx=5)
 
+check_button = create_button(root, "Check", font=("Helvetica", 12), bg="#4CAF50", fg="white", command=popup)
+check_button.pack(pady=5)
+
 
 
 # Create frame for inputing hash file                        ///////////////// HASH INPUT ////////////////////////
@@ -124,7 +132,7 @@ for i, hash_type in enumerate(hash_types):
 wordlist_frame = tk.Frame(root, bg="#f0f0f0")
 wordlist_frame.pack(pady=10)
 
-wordlist_label = create_label(wordlist_frame, "Select a wordlist")
+wordlist_label = create_label(wordlist_frame, "WordList Rainbow")
 wordlist_label.grid(row=0, column=0, padx=5)
 
 wordlist_button = create_button(wordlist_frame, "Browse", command=show_wordlist_selection)
