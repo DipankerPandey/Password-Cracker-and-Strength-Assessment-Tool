@@ -104,6 +104,7 @@ def MD_to_hex(digest):
 
 
 def md5(msg):
+    msg = msg.encode('utf-8')
     msg = bytearray(msg) # create a copy of the original message in form of a sequence of integers [0, 256)
     msg = pad(msg)
     processed_msg = processMessage(msg)
@@ -115,5 +116,5 @@ def md5(msg):
 
 if __name__ == '__main__':
     # Encode the input message to UTF-8
-    message_utf8 = message.encode('utf-8')
+
     print(md5(message_utf8))
