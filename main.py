@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+from checker import password_strength_checker
 
 # Function for pop up
 def popup():
-    messagebox.showinfo("Popup", "Hello! This is a pop-up message.")
-
+    param= password_strength_checker(password_entry.get())
+    messagebox.showinfo("Popup", param)
 
 
 # Function to showcase wordlist selection
